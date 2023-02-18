@@ -32,22 +32,35 @@ app.use('/api/admin', require('./routes/adminRoutes'));
 
 // Serve front end
 
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, '../frontend/dist')));
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-	app.get('*', (req, res) => {
-		const options = {
-			root: path.join(__dirname, '../frontend/dist'),
-			dotfiles: 'allow',
-		};
-		res.sendFile('index.html', options);
-	});
-} else {
-	// Routes || Endpoint
-	app.get('/', (req, res) => {
-		res.send('Hello WORLD');
-	});
-}
+app.get('*', function (_, res) {
+	res.sendFile(
+		path.join(__dirname, '../frontend/dist/index.html'),
+		function (err) {
+			if (err) {
+				res.status(500).send(err);
+			}
+		}
+	);
+});
+
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static(path.join(__dirname, '../frontEnd/dist')));
+
+// 	app.get('*', (req, res) => {
+// 		const options = {
+// 			root: path.join(__dirname, '../', 'frontend', 'dist'),
+// 			dotfiles: 'allow',
+// 		};
+// 		res.sendFile('index.html', options);
+// 	});
+// } else {
+// 	// Routes || Endpoint
+// 	app.get('/', (req, res) => {
+// 		res.send('Hello WORLD');
+// 	});
+// }
 // End of Routes
 
 // Error Handler
