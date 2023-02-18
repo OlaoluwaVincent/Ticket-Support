@@ -1,6 +1,6 @@
 {
-	"vercel": "2",
-	"builds": [{ "src": "*.js", "use": "@vercel/node" }],
+	"vercel": 2,
+	"builds": [{ "src": "server.js", "use": "@vercel/node" }],
 	"routes": {
 		"routes": [{ "src": "/(.*)", "dest": "/" }]
 	}

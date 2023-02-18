@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import { getTickets, reset } from '../features/tickets/ticketSlice';
 import LoadingState from '../components/LoadingState';
 import BackButton from '../components/BackButton';

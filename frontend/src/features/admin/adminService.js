@@ -4,7 +4,7 @@ let URL;
 if (process.env.NODE_ENV === 'development') {
 	URL = 'http://localhost:5000/admin';
 } else {
-	URL = '/admin';
+	URL = '/api/admin';
 }
 
 // Get a Ticket base off of an ID

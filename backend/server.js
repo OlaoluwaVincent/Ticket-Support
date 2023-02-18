@@ -28,16 +28,16 @@ app.use(bodyParser.json());
 
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/tickets', require('./routes/ticketRoutes'));
-app.use('/admin', require('./routes/adminRoutes'));
+app.use('/api/admin', require('./routes/adminRoutes'));
 
 // Serve front end
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, '../frontEnd/dist')));
+	app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 	app.get('*', (req, res) => {
 		const options = {
-			root: path.join(__dirname, '../', 'frontend', 'dist'),
+			root: path.join(__dirname, '../frontend/dist'),
 			dotfiles: 'allow',
 		};
 		res.sendFile('index.html', options);
