@@ -4,9 +4,9 @@
 	"description": "Backend for the Porject||Learning deployment to Firebase",
 	"main": "index.js",
 	"scripts": {
-		"start": "node backend/server.js",
-		"json": "nodemon backend/server.js",
-		"client": "npm run --prefix frontEnd start",
+		"start": "node server.js",
+		"json": "nodemon server.js",
+		"client": "npm run --prefix frontend start",
 		"stack": "concurrently \"npm run start\" \"npm run client\""
 	},
 	"repository": {
