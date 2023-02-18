@@ -7,9 +7,7 @@
 		"start": "node backend/server.js",
 		"json": "nodemon backend/server.js",
 		"client": "npm run --prefix frontEnd start",
-		"stack": "concurrently \"npm run start\" \"npm run client\"",
-		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm --prefix frontEnd install && npm run --prefix frontEnd build",
-		"build": "NPM_CONFIG_PRODUCTION=false npm --prefix frontEnd install && npm run --prefix frontEnd build"
+		"stack": "concurrently \"npm run start\" \"npm run client\""
 	},
 	"repository": {
 		"type": "git",
