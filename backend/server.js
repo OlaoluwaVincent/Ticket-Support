@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const colors = require('colors');
 const cors = require('cors');
 const { errorHandler } = require('./middleware/errorMiddleware');
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 5000;
 const connectDB = require('./config/db');
 const path = require('path');
 
@@ -33,20 +33,20 @@ app.use('/api/admin', require('./routes/adminRoutes'));
 // Serve front end
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, '../frontEnd/dist')));
+  app.use(express.static(path.join(__dirname, '../frontEnd/dist')));
 
-	app.get('*', (req, res) => {
-		const options = {
-			root: path.join(__dirname, '../', 'frontend', 'dist'),
-			dotfiles: 'allow',
-		};
-		res.sendFile('index.html', options);
-	});
+  app.get('*', (req, res) => {
+    const options = {
+      root: path.join(__dirname, '../', 'frontend', 'dist'),
+      dotfiles: 'allow',
+    };
+    res.sendFile('index.html', options);
+  });
 } else {
-	// Routes || Endpoint
-	app.get('/', (req, res) => {
-		res.send('Hello WORLD');
-	});
+  // Routes || Endpoint
+  app.get('/', (req, res) => {
+    res.send('Hello WORLD');
+  });
 }
 // End of Routes
 
