@@ -33,7 +33,7 @@ app.use('/api/admin', require('./routes/adminRoutes'));
 // Serve front end
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontEnd/dist')));
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
   app.get('*', (req, res) => {
     const options = {
